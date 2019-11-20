@@ -1,6 +1,6 @@
 package tiles;
 
-import com.game.com.game.gfx.Assets;
+import com.game.gfx.Assets;
 
 class GrassTile extends Tile {
 

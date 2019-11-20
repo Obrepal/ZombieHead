@@ -1,10 +1,9 @@
 package com.game.MAIN;
 
 
-import com.game.com.game.gfx.Assets;
-import com.game.com.game.gfx.GameCamera;
+import com.game.gfx.Assets;
+import com.game.gfx.GameCamera;
 import com.game.display.Display;
-import com.game.enitity.Entity;
 import com.game.state.GameState;
 import com.game.state.MenuState;
 import com.game.state.State;

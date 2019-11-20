@@ -1,8 +1,6 @@
 package tiles;
 
-import com.game.com.game.gfx.Assets;
-
-import java.awt.image.BufferedImage;
+import com.game.gfx.Assets;
 
 class DirtTile extends Tile {
 

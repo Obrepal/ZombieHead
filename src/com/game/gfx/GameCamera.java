@@ -1,4 +1,4 @@
-package com.game.com.game.gfx;
+package com.game.gfx;
 
 
 import com.game.MAIN.Handler;

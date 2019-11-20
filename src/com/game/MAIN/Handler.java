@@ -1,7 +1,7 @@
 package com.game.MAIN;
 
 import World.World;
-import com.game.com.game.gfx.GameCamera;
+import com.game.gfx.GameCamera;
 import input.KeyManager;
 
 public class Handler {

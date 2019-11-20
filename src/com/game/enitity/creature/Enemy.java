@@ -1,13 +1,10 @@
 package com.game.enitity.creature;
 
 import com.game.MAIN.Handler;
-import com.game.com.game.gfx.Assets;
-import com.game.enitity.Entity;
+import com.game.gfx.Assets;
 import tiles.Tile;
 
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.lang.management.PlatformLoggingMXBean;
 
 public class Enemy extends Creature {
 

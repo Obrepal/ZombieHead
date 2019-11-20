@@ -1,7 +1,7 @@
 package com.game.enitity.creature;
 
 import com.game.MAIN.Handler;
-import com.game.com.game.gfx.Assets;
+import com.game.gfx.Assets;
 import com.game.enitity.Entity;
 
 import java.awt.*;
