@@ -39,14 +39,8 @@ public class Display {
         frame.add(canvas); //add canvas to frame
         frame.pack(); // ensures that all works together
     }
-
-
     public Canvas getCanvas(){
         return  canvas;
 }
-
     public JFrame getFrame(){return frame;}
-
-
-
 }
