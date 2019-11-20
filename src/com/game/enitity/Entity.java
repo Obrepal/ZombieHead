@@ -87,7 +87,7 @@ public abstract class Entity {
     }
 
     public void setY(float y) {
-        this.y = y;
+        this.y = y;//
     }
 
     public int getWidth() {
