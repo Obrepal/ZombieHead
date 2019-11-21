@@ -21,24 +21,19 @@ public class KeyManager implements KeyListener {
         attack = keys[KeyEvent.VK_SPACE];
     }
 
-
-    @Override
+   // @Override
     public void keyTyped(KeyEvent e) {
         System.out.println("Prseesd");
 
     }
-
-    @Override
+    //@Override
     public void keyPressed(KeyEvent e) {
         keys[e.getKeyCode()] = true;
 
     }
-
-    @Override
+   // @Override
     public void keyReleased(KeyEvent e) {
         keys[e.getKeyCode()] = false;
 
     }
-
-
 }
