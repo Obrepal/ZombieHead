@@ -31,16 +31,16 @@ public class Enemy extends Creature {
         xMove = 0;
         yMove = 0;
 
-        if ( (y < Player.getYP() && checkDown() && x >= Player.getXP()) || ( x >= Player.getXP() && !checkLeft())/* || (y <= Player.getYP() && checkAll())*/)// down
+        if ((y < Player.getYP() && checkDown() && x >= Player.getXP()) || ( x >= Player.getXP() && !checkLeft())) //up
             yMove = (speed -1);
 
-        if( (y > Player.getYP() && checkUP() && x <= Player.getXP() ) ||  (x <= Player.getXP() && !checkRight())  /*|| (y >= Player.getYP() && checkAll()) */) //up
+        if((y > Player.getYP() && checkUP() && x <= Player.getXP()) ||  (x <= Player.getXP() && !checkRight())) // down
             yMove = (-speed+1);
 
-        if((x > Player.getXP() && checkLeft() && y >= Player.getYP() ) || (y >= Player.getYP() && !checkUP()) /*|| (x >= Player.getXP() && checkAll() )*/) // left
+        if((x > Player.getXP() && checkLeft() && y >= Player.getYP() ) || (y >= Player.getYP() && !checkUP()) ) // left
          xMove = (-speed + 1);
 
-       if((x < Player.getXP() && checkRight() && y <= Player.getYP() ) || (y <= Player.getYP() && !checkDown()) /*|| (x <= Player.getXP() && checkAll())*/) //right
+       if((x < Player.getXP() && checkRight() && y <= Player.getYP() ) || (y <= Player.getYP() && !checkDown()) ) //right
             xMove = (speed-1);
     }
 
@@ -49,44 +49,29 @@ public class Enemy extends Creature {
 
     private boolean checkUP(){
         int ty = (int) (y - 3 + bounds.y) / Tile.TILEHEIGHT;
-        if (!collisionWithTile2((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-                !collisionWithTile2((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty))
-            return true;
-        else
-            return false;
+         return (!collisionWithTile2((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
+                !collisionWithTile2((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty));
+
     }
 
    private boolean checkDown(){
         int ty = (int) (y +3 + bounds.y + bounds.height) / Tile.TILEHEIGHT;
-        if (!collisionWithTile2((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
-                !collisionWithTile2((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty))
-            return true;
-        else
-            return false;
+        return (!collisionWithTile2((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
+                !collisionWithTile2((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty));
     }
 
   private   boolean checkLeft(){
         int tx = (int) (x -3 + bounds.x) / Tile.TILEWIDTH;
-
-        if (!collisionWithTile2(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-                !collisionWithTile2(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
-            return true;
-        else
-            return false;
+        return (!collisionWithTile2(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
+                !collisionWithTile2(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT));
     }
 
    private boolean checkRight(){
         int tx = (int) (x + 3 + bounds.x + bounds.width) / Tile.TILEWIDTH;
-        if (!collisionWithTile2(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
-                !collisionWithTile2(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT))
-            return  true;
-        else
-            return false;
+        return (!collisionWithTile2(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
+                !collisionWithTile2(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT));
     }
 
-    boolean checkAll(){
-        return checkDown() && checkUP() && checkRight() && checkLeft();
-    }
 
 
 

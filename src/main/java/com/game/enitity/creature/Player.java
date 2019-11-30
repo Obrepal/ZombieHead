@@ -41,7 +41,6 @@ public class Player extends Creature {
 
         private void checkAttacks( ) {
 
-
             Rectangle collisonRect = getCollisionBounds(0, 0);
             attackTimer += System.currentTimeMillis() - lastAttackTimer;
             lastAttackTimer = System.currentTimeMillis();
@@ -74,7 +73,8 @@ public class Player extends Creature {
                     e.hurt(1);
                     }
                 }
-                return; }
+                return;
+            }
         }
 
         @Override
@@ -95,7 +95,6 @@ public class Player extends Creature {
             if(handler.getKeyManeger().right)
                 xMove = 2*speed;
         }
-
 
         @Override
         public  void render(Graphics graphics){
@@ -118,9 +117,6 @@ public class Player extends Creature {
 
             //Attack area
 
-
-
-         //   System.out.println(xMove);
             z = x;
             t = y;
 
