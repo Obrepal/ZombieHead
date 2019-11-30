@@ -58,7 +58,7 @@ public class Player extends Creature {
                 attackRect.x = collisonRect.x - arSize/4;                                      // collisonRect.width / 2 - arSize / 2;
                 attackRect.y = collisonRect.y - arSize/4;
             } else return;
-            System.out.println("TOOOO "+( collisonRect.y - arSize/4 ));
+
             attacking = true;
             attackTimer = 0;
 
@@ -116,16 +116,15 @@ public class Player extends Creature {
             graphics.drawString( Float.toString(y) ,5, 20);
 
             //Attack area
-
             z = x;
             t = y;
 
     }
 
-    protected static float getXP(){
+    static float getXP(){
         return z;
     }
-    protected static float getYP(){
+    static float getYP(){
         return t;
     }
 }
