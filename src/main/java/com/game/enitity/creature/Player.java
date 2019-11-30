@@ -14,7 +14,7 @@ public class Player extends Creature {
 
     private boolean attacking = false;
     private long lastAttackTimer, attackCooldown = 800, attackTimer = attackCooldown;
-    Rectangle attackRect = new Rectangle();
+    private Rectangle attackRect = new Rectangle();
 
 
 
@@ -23,7 +23,7 @@ public class Player extends Creature {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 
         bounds.x= 16; //coordinate of player
-        bounds.y =32;
+        bounds.y = 32;
         bounds.width = 32;
         bounds. height = 32;
     }
@@ -44,7 +44,7 @@ public class Player extends Creature {
             Rectangle collisonRect = getCollisionBounds(0, 0);
             attackTimer += System.currentTimeMillis() - lastAttackTimer;
             lastAttackTimer = System.currentTimeMillis();
-            if(attackTimer >300){
+            if(attackTimer > 300){
                 attacking = false;
             }
             if(attackTimer < attackCooldown) {
@@ -57,9 +57,7 @@ public class Player extends Creature {
             if (handler.getKeyManeger().attack) {
                 attackRect.x = collisonRect.x - arSize/4;                                      // collisonRect.width / 2 - arSize / 2;
                 attackRect.y = collisonRect.y - arSize/4;
-            } else {
-                return;
-            }
+            } else return;
             System.out.println("TOOOO "+( collisonRect.y - arSize/4 ));
             attacking = true;
             attackTimer = 0;
@@ -111,6 +109,8 @@ public class Player extends Creature {
                         bounds.width, bounds.height);
             }
 
+
+
             graphics.setFont(new Font("TimesRomna",Font.PLAIN, 10));
             graphics.drawString( Float.toString(x) ,5, 10);
             graphics.drawString( Float.toString(y) ,5, 20);
@@ -122,10 +122,10 @@ public class Player extends Creature {
 
     }
 
-    public static float getXP(){
+    protected static float getXP(){
         return z;
     }
-    public static float getYP(){
+    protected static float getYP(){
         return t;
     }
 }

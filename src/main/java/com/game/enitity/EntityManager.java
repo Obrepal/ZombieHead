@@ -2,8 +2,6 @@ package com.game.enitity;
 
 import com.game.MAIN.Handler;
 import com.game.enitity.creature.Player;
-
-import javax.crypto.EncryptedPrivateKeyInfo;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -27,14 +25,12 @@ public class EntityManager {
             if(!e.isActive())
                 entities.remove(e);
         }
-        //player.tick();
     }
 
     public void render(Graphics g){
         for(Entity e : entities){
             e.render(g);
         }
-        //player.render(g);
     }
 
     public void addEntity(Entity e){
@@ -55,16 +51,7 @@ public class EntityManager {
         return player;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
     public ArrayList<Entity> getEntities() {
         return entities;
     }
-
-    public void setEntities(ArrayList<Entity> entities) {
-        this.entities = entities;
-    }
-
 }
