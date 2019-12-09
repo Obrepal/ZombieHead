@@ -3,6 +3,7 @@ package com.game.state;
 import World.World;
 import com.game.MAIN.Game;
 import com.game.MAIN.Handler;
+//import com.game.enitity.creature.Bullet;
 import com.game.enitity.creature.Enemy;
 import com.game.enitity.creature.Player;
 
@@ -17,6 +18,7 @@ public class GameState extends State {
     private Enemy[] enemies = new Enemy[2];
     private Player player;
     */
+   //private Bullet bullet;
 
 
     public GameState(Handler handler){
@@ -28,12 +30,14 @@ public class GameState extends State {
         enemy1 = new Enemy(handler, 1000, 800);
         enemies[0] = enemy;
         enemies[1] = enemy1;*/
+   //     bullet = new Bullet(100, 100);
     }
 
 
     @Override
     public  void tick(){
         world.tick();
+      //  bullet.tick();
       /*  player.tick();
         enemy.tick();
         enemy1.tick();
@@ -45,6 +49,7 @@ public class GameState extends State {
     @Override
     public void render (Graphics graphics){
         world.render(graphics);
+        //bullet.render(graphics);
         /*enemy.render(graphics);
         enemy1.render(graphics);
         player.render(graphics);*/

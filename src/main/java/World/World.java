@@ -53,7 +53,6 @@ public class World {
             }
         }
 
-        //eneriti
         entityManager.render(graphics);
     }
     public Tile getTile(int x, int y){
@@ -66,7 +65,7 @@ public class World {
         return t;
 
     }
-    public void loadWorld(String path){ //acces can be private
+ private void loadWorld(String path){ //acces can be private
         String file = Utils.loadFileAsString(path);
         String [] tokens = file.split("\\s+");
         width  = Utils.parseInt(tokens[0]);

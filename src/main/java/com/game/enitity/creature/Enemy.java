@@ -55,7 +55,7 @@ public class Enemy extends Creature {
         return (!collisionWithTile2((int) (x + bounds.x) / Tile.TILEWIDTH, ty) &&
                 !collisionWithTile2((int) (x + bounds.x + bounds.width) / Tile.TILEWIDTH, ty));
     }
-    private   boolean checkLeft(){
+    private boolean checkLeft(){
         int tx = (int) (x - 3 + bounds.x) / Tile.TILEWIDTH;
         return (!collisionWithTile2(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) &&
                 !collisionWithTile2(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT));
@@ -66,7 +66,7 @@ public class Enemy extends Creature {
                 !collisionWithTile2(tx, (int) (y + bounds.y + bounds.height) / Tile.TILEHEIGHT));
     }
 
-    protected boolean collisionWithTile2(int x, int y) {
+    private boolean collisionWithTile2(int x, int y) {
         return handler.getWorld().getTile(x,y).isSolid();
     }
 
@@ -79,6 +79,5 @@ public class Enemy extends Creature {
                 (int)( y + bounds.y-handler.getGameCamera().getyOffset() ),
                 bounds.width,bounds.height );
     }
-
 }
 

@@ -19,12 +19,12 @@ public class KeyManager implements KeyListener {
         right = keys[KeyEvent.VK_D];
         attack = keys[KeyEvent.VK_SPACE];
 
-        fire = keys[KeyEvent.VK_F];
+        fire = keys[KeyEvent.VK_ENTER];
     }
 
    // @Override
     public void keyTyped(KeyEvent e) {
-        System.out.println("Prseesd");
+       // System.out.println("Prseesd");
 
     }
     //@Override

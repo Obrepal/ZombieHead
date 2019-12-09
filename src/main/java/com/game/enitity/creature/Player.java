@@ -4,7 +4,11 @@ import com.game.MAIN.Handler;
 import com.game.gfx.Assets;
 import com.game.enitity.Entity;
 
+//import com.game.enitity.creature.RailGun;
+
+
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 
 public class Player extends Creature {
@@ -13,8 +17,12 @@ public class Player extends Creature {
     private static float t;
 
     private boolean attacking = false;
-    private long lastAttackTimer, attackCooldown = 800, attackTimer = attackCooldown;
+    private boolean firing = false;
+    private long lastAttackTimer, attackCooldown,fireCooldown, lastFireTimer = 800, attackTimer = attackCooldown,fireTimer =fireCooldown ;
     private Rectangle attackRect = new Rectangle();
+    private Rectangle fireRect = new Rectangle();
+   // private RailGun railGun = new RailGun();
+
 
 
 
@@ -30,16 +38,16 @@ public class Player extends Creature {
 
         @Override
         public void tick(){
-
             //Movement
             getInput();
             move();
             handler.getGameCamera().centeronEntity(this);
             // Attack
             checkAttacks();
+            checkFire();
         }
 
-        private void checkAttacks( ) {
+        private void checkAttacks() {
 
             Rectangle collisonRect = getCollisionBounds(0, 0);
             attackTimer += System.currentTimeMillis() - lastAttackTimer;
@@ -75,51 +83,123 @@ public class Player extends Creature {
             }
         }
 
-        @Override
-        public void die(){
-        System.out.println(" You lose ");
-        }
+        private void checkFire() {
+            Rectangle collisonRect = getCollisionBounds(0, 0);
+            fireTimer += System.currentTimeMillis() - lastFireTimer;
+            lastFireTimer = System.currentTimeMillis();
 
-        private void getInput(){
-            xMove = 0;
-            yMove = 0;
-
-            if(handler.getKeyManeger().up)
-                yMove = -2*speed;
-            if(handler.getKeyManeger().down)
-                yMove = 2*speed;
-            if(handler.getKeyManeger().left)
-                xMove = -2*speed;
-            if(handler.getKeyManeger().right)
-                xMove = 2*speed;
-        }
-
-        @Override
-        public  void render(Graphics graphics){
-        graphics.drawImage(Assets.player, (int) (x - handler.getGameCamera().getxOffset()),
-                (int) (y-handler.getGameCamera().getyOffset()) , width, height, null);
-            graphics.setColor(Color.RED);
-            graphics.fillRect((int)(x + bounds.x-handler.getGameCamera().getxOffset()),
-                              (int)(y + bounds.y-handler.getGameCamera().getyOffset()),
-                                    bounds.width,bounds.height);
-            if(attacking) {
-                graphics.setColor(Color.GREEN);
-                graphics.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
-                        (int) (y + bounds.y - handler.getGameCamera().getyOffset()),
-                        bounds.width, bounds.height);
+            if(fireTimer > 300){
+                firing = false;
+            }
+            if(fireTimer < fireCooldown) {
+                return;
             }
 
+            fireRect.width = 2;
+            fireRect.height = 100;
+
+            if (handler.getKeyManeger().fire) {
+
+                if( yMove < 0 ) {
+                    fireRect.x = collisonRect.x + 16 ;
+                    fireRect.y = collisonRect.y - 84;
+
+                }
+                if( yMove > 0 ) {
+                    fireRect.x = collisonRect.x + 16;
+                    fireRect.y = collisonRect.y + 16;
+                }
+                if( xMove < 0 ) {
+                    fireRect.x = collisonRect.x - 80 ;
+                    fireRect.y = collisonRect.y + 16;
+
+                }
+                if( xMove > 0 ) {
+                    fireRect.x = collisonRect.x + 16;
+                    fireRect.y = collisonRect.y + 16;
+                }
 
 
-            graphics.setFont(new Font("TimesRomna",Font.PLAIN, 10));
-            graphics.drawString( Float.toString(x) ,5, 10);
-            graphics.drawString( Float.toString(y) ,5, 20);
 
-            //Attack area
-            z = x;
-            t = y;
+                firing = true;
+            } else return;
+
+            for (int i = 0; i < 2; ++i){
+                for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
+                    if (e.equals(this))
+                        continue;
+
+                    if (e.getCollisionBounds(0, 0).intersects(fireRect)) {
+                        e.hurt(1);
+                    }
+                }
+                return;
+            }
+
+        }
+
+
+
+    @Override
+    public  void render(Graphics graphics){
+
+        graphics.drawImage(Assets.player, (int) (x - handler.getGameCamera().getxOffset()),
+                (int) (y-handler.getGameCamera().getyOffset()) , width, height, null);
+
+        graphics.fillRect((int)(x + bounds.x-handler.getGameCamera().getxOffset()),
+                (int)(y + bounds.y-handler.getGameCamera().getyOffset()),
+                bounds.width,bounds.height);
+        if(attacking) {
+            graphics.setColor(Color.GREEN);
+            graphics.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffset()),
+                    (int) (y + bounds.y - handler.getGameCamera().getyOffset()),
+                    bounds.width, bounds.height);
+
+        }
+        if(firing) {
+            graphics.setColor(Color.MAGENTA);
+            if((yMove < 0 || yMove > 0) && xMove >= 0 && xMove <=0  ){
+            graphics.fillRect((int)(fireRect.x - handler.getGameCamera().getxOffset()),(int) (fireRect.y- handler.getGameCamera().getyOffset()), fireRect.width ,fireRect.height);}
+            if((xMove < 0 || xMove > 0) && yMove >= 0 && yMove <=0 ){
+                graphics.fillRect((int)(fireRect.x - handler.getGameCamera().getxOffset()),(int) (fireRect.y- handler.getGameCamera().getyOffset()), fireRect.width*50 ,fireRect.height/50);}
+            }
+
+        //graphics.fillRect((int)(x + DEFAULT_CREATURE_HEIGHT /4+ bounds.x-handler.getGameCamera().getxOffset()),(int) (y + DEFAULT_CREATURE_WIDTH/4+ bounds.y - handler.getGameCamera().getyOffset()), fireRect.width ,fireRect.height);
+
+
+
+
+
+
+
+        graphics.setFont(new Font("TimesRoman",Font.PLAIN, 10));
+        graphics.drawString( Float.toString(x) ,5, 10);
+        graphics.drawString( Float.toString(y) ,5, 20);
+
+        //Attack area
+        z = x;
+        t = y;
 
     }
+    @Override
+    public void die(){
+        System.out.println(" You lose ");
+    }
+
+    private void getInput(){
+        xMove = 0;
+        yMove = 0;
+
+        if(handler.getKeyManeger().up)
+            yMove = -2*speed;
+        if(handler.getKeyManeger().down)
+            yMove = 2*speed;
+        if(handler.getKeyManeger().left)
+            xMove = -2*speed;
+        if(handler.getKeyManeger().right)
+            xMove = 2*speed;
+    }
+
 
     static float getXP(){
         return z;
@@ -127,4 +207,8 @@ public class Player extends Creature {
     static float getYP(){
         return t;
     }
+   /* public static ArrayList getBullets()
+    {
+        return bullets;
+    }*/
 }

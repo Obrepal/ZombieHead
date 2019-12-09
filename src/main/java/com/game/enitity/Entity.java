@@ -11,7 +11,7 @@ public abstract class Entity {
     protected Handler handler;
     protected float x,y; //position
     protected int width, height;
-    protected int health;
+    private int health;
     private boolean active = true;
     protected Rectangle bounds;
 
@@ -43,11 +43,10 @@ public abstract class Entity {
     }
 
     protected boolean checkEntityCollisions(float xOffset, float yOffset){
-       // System.out.println(" hewrre dwd  " +xOffset);
         for(Entity e : handler.getWorld().getEntityManager().getEntities()) {
             if(e.equals(this))
                 continue;
-            if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))) //rectangel
+            if (e.getCollisionBounds(0f, 0f).intersects( getCollisionBounds(xOffset, yOffset) )) //rectangel
                 return true;
             }
         return false;
@@ -58,20 +57,8 @@ public abstract class Entity {
                 bounds.width, bounds.height);
     }
 
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
     boolean isActive() {
         return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
     }
 
     public float getX() {
@@ -94,15 +81,8 @@ public abstract class Entity {
         return width;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
     public int getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
 }
