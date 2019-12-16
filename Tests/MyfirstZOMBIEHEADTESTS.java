@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.junit.Before;
 import org.mockito.Mockito;
 
-import static org.mockito.Mockito.*
+import static org.mockito.Mockito.*;
 
 
 import java.awt.event.KeyEvent;
