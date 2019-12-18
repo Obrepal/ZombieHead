@@ -27,7 +27,7 @@ public class Enemy extends Creature {
     }
 
     //TIMER!???????????? fix bug when it is going down etc like 1st and 2nd
-    private void getInput(){
+   public void getInput(){
         xMove = 0;
         yMove = 0;
 

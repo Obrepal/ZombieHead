@@ -95,26 +95,33 @@ public class Player extends Creature {
                 return;
             }
 
-            fireRect.width = 2;
-            fireRect.height = 100;
+
 
             if (handler.getKeyManeger().fire) {
 
                 if( yMove < 0 ) {
+                    fireRect.width = 2;
+                    fireRect.height = 100;
                     fireRect.x = collisonRect.x + 16 ;
                     fireRect.y = collisonRect.y - 84;
 
                 }
                 if( yMove > 0 ) {
+                    fireRect.width = 2;
+                    fireRect.height = 100;
                     fireRect.x = collisonRect.x + 16;
                     fireRect.y = collisonRect.y + 16;
                 }
                 if( xMove < 0 ) {
+                    fireRect.width = 100;
+                    fireRect.height = 2;
                     fireRect.x = collisonRect.x - 80 ;
                     fireRect.y = collisonRect.y + 16;
 
                 }
                 if( xMove > 0 ) {
+                    fireRect.width = 100;
+                    fireRect.height = 2;
                     fireRect.x = collisonRect.x + 16;
                     fireRect.y = collisonRect.y + 16;
                 }
@@ -186,7 +193,8 @@ public class Player extends Creature {
         System.out.println(" You lose ");
     }
 
-    private void getInput(){
+    @Override
+   public void getInput(){
         xMove = 0;
         yMove = 0;
 

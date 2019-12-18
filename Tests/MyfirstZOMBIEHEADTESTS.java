@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
+import javax.swing.*;
+
 import static org.mockito.Mockito.*;
 
 
@@ -42,36 +44,26 @@ public class MyfirstZOMBIEHEADTESTS {
         }
     }
 
-
-
-
-    /* Handler handler1 = mock(Handler.class);
     @Mock
     Handler handler;
 
     @Test
     public void testOfPlayer() {
         Player player = new Player(handler, 700, 800);
-    }*/
+        player.setX(800);
+        Assert.assertTrue( player.getX() == 800);
 
-
-
-
-   /* @Test
-    public void firstTest() {
-        Assert.assertTrue(true);
     }
-
-
-
-    protected int value1, value2;
     @Test
-    public void testAdd(){
-        value1 = 3;
-        value2 = 3;
-        double result = value1 + value2;
-        Assert.assertTrue(result == 5);
-    }*/
+    public  void testOfKeymmaneger(){
+        Player player = new Player(handler, 700, 800);
+        KeyEvent e = new KeyEvent(new JFrame(), KeyEvent.KEY_PRESSED, 1, 0, 57, KeyEvent.CHAR_UNDEFINED);
+        handler.getKeyManeger().keyPressed(e);
+        //player.getInput();
+        //Assert.assertTrue(700 == player.getX());
+     //  handler.getKeyManeger().keyPressed(e);
+        Assert.assertTrue(true);
+}
 
 
 }

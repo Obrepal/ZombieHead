@@ -6,13 +6,13 @@ import java.awt.event.KeyListener;
 public class KeyManager implements KeyListener {
     private boolean[] keys;
     public boolean up, down, left, right;
-    public boolean attack, fire ;
+    public boolean attack, fire;
 
-    public KeyManager(){
+    public KeyManager() {
         keys = new boolean[256];
     }
 
-    public void tick(){
+    public void tick() {
         up = keys[KeyEvent.VK_W];
         down = keys[KeyEvent.VK_S];
         left = keys[KeyEvent.VK_A];
@@ -22,19 +22,20 @@ public class KeyManager implements KeyListener {
         fire = keys[KeyEvent.VK_ENTER];
     }
 
-   // @Override
+    // @Override
     public void keyTyped(KeyEvent e) {
-       // System.out.println("Prseesd");
+        // System.out.println("Prseesd");
 
     }
+
     //@Override
     public void keyPressed(KeyEvent e) {
         keys[e.getKeyCode()] = true;
 
     }
-   // @Override
+
+    // @Override
     public void keyReleased(KeyEvent e) {
         keys[e.getKeyCode()] = false;
-
     }
 }
