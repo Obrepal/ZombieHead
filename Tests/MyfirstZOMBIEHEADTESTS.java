@@ -1,11 +1,17 @@
 
 import com.game.MAIN.Handler;
 import com.game.enitity.creature.Player;
+import input.KeyManager;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import java.awt.event.KeyEvent;
+
 
 import javax.swing.*;
 
@@ -17,7 +23,7 @@ import java.awt.event.KeyEvent;
 
 public class MyfirstZOMBIEHEADTESTS {
 
-    @Test
+  /*  @Test
     public void testOfPlayerExistence() {
         try {
             Class.forName("com.game.enitity.creature.Player");
@@ -52,20 +58,23 @@ public class MyfirstZOMBIEHEADTESTS {
         Player player = new Player(handler, 700, 800);
         player.setX(800);
         Assert.assertTrue( player.getX() == 800);
+    }*/
+
+    @Test
+    public  void testOfKeyManager(){
+        KeyManager keyManager = new KeyManager();
+        KeyEvent e = new KeyEvent(new JFrame(), KeyEvent.KEY_PRESSED, 1, 0, 70, KeyEvent.CHAR_UNDEFINED);
+        keyManager.keyPressed(e);
+        System.out.println(e +" ");
+        System.out.println(keyManager.getFire());
+       // Assert.assertTrue (keyManager.getKeys1(70));
+        Assert.assertTrue(keyManager.getFire());
 
     }
-    @Test
-    public  void testOfKeymmaneger(){
-        Player player = new Player(handler, 700, 800);
-        KeyEvent e = new KeyEvent(new JFrame(), KeyEvent.KEY_PRESSED, 1, 0, 57, KeyEvent.CHAR_UNDEFINED);
-        handler.getKeyManeger().keyPressed(e);
-        //player.getInput();
-        //Assert.assertTrue(700 == player.getX());
-     //  handler.getKeyManeger().keyPressed(e);
-        Assert.assertTrue(true);
-}
-
 
 }
+
+//java.awt.event.KeyEvent[KEY_PRESSED,keyCode=70,keyText=F,keyChar=Undefined keyChar,keyLocation=KEY_LOCATION_UNKNOWN,rawCode=0,primaryLevelUnicode=0,scancode=0,extendedKeyCode=0x0] on frame0
+//false
 
 

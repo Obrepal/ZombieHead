@@ -97,7 +97,7 @@ public class Player extends Creature {
 
 
 
-            if (handler.getKeyManeger().fire) {
+            if (handler.getKeyManeger().getFire()) {
 
                 if( yMove < 0 ) {
                     fireRect.width = 2;
@@ -125,8 +125,6 @@ public class Player extends Creature {
                     fireRect.x = collisonRect.x + 16;
                     fireRect.y = collisonRect.y + 16;
                 }
-
-
 
                 firing = true;
             } else return;
@@ -168,7 +166,7 @@ public class Player extends Creature {
             if((yMove < 0 || yMove > 0) && xMove >= 0 && xMove <=0  ){
             graphics.fillRect((int)(fireRect.x - handler.getGameCamera().getxOffset()),(int) (fireRect.y- handler.getGameCamera().getyOffset()), fireRect.width ,fireRect.height);}
             if((xMove < 0 || xMove > 0) && yMove >= 0 && yMove <=0 ){
-                graphics.fillRect((int)(fireRect.x - handler.getGameCamera().getxOffset()),(int) (fireRect.y- handler.getGameCamera().getyOffset()), fireRect.width*50 ,fireRect.height/50);}
+                graphics.fillRect((int)(fireRect.x - handler.getGameCamera().getxOffset()),(int) (fireRect.y- handler.getGameCamera().getyOffset()), fireRect.width ,fireRect.height);}
             }
 
         //graphics.fillRect((int)(x + DEFAULT_CREATURE_HEIGHT /4+ bounds.x-handler.getGameCamera().getxOffset()),(int) (y + DEFAULT_CREATURE_WIDTH/4+ bounds.y - handler.getGameCamera().getyOffset()), fireRect.width ,fireRect.height);
