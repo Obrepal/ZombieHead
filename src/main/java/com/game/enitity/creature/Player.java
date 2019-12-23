@@ -62,7 +62,7 @@ public class Player extends Creature {
             int arSize = 64;
             attackRect.width = arSize;
             attackRect.height = arSize;
-            if (handler.getKeyManeger().attack) {
+            if (handler.getKeyManeger().isAttack()) {
                 attackRect.x = collisonRect.x - arSize/4;                                      // collisonRect.width / 2 - arSize / 2;
                 attackRect.y = collisonRect.y - arSize/4;
             } else return;
@@ -79,8 +79,8 @@ public class Player extends Creature {
                     e.hurt(1);
                     }
                 }
-                return;
-            }
+
+            }//return;
         }
 
         private void checkFire() {
@@ -97,7 +97,7 @@ public class Player extends Creature {
 
 
 
-            if (handler.getKeyManeger().getFire()) {
+            if (handler.getKeyManeger().isFire()) {
 
                 if( yMove < 0 ) {
                     fireRect.width = 2;
@@ -138,8 +138,8 @@ public class Player extends Creature {
                         e.hurt(1);
                     }
                 }
-                return;
-            }
+
+            } //return;
 
         }
 
@@ -196,13 +196,13 @@ public class Player extends Creature {
         xMove = 0;
         yMove = 0;
 
-        if(handler.getKeyManeger().up)
+        if(handler.getKeyManeger().isUp())
             yMove = -2*speed;
-        if(handler.getKeyManeger().down)
+        if(handler.getKeyManeger().isDown())
             yMove = 2*speed;
-        if(handler.getKeyManeger().left)
+        if(handler.getKeyManeger().isLeft())
             xMove = -2*speed;
-        if(handler.getKeyManeger().right)
+        if(handler.getKeyManeger().isRight())
             xMove = 2*speed;
     }
 
