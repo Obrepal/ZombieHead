@@ -5,11 +5,10 @@ import com.game.gfx.GameCamera;
 import input.KeyManager;
 
 public class Handler {
-
     private Game game;
     private World world;
-    public Handler(Game game){ this.game =game;
-    }
+
+    public Handler(Game game){ this.game = game; }
 
     public GameCamera getGameCamera(){
         return game.getGameCamera();
@@ -42,4 +41,5 @@ public class Handler {
     public void setWorld(World world) {
         this.world = world;
     }
+
 }

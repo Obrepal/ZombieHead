@@ -35,8 +35,8 @@ public class World {
         entityManager.getPlayer().setX(spawnx);
         entityManager.getPlayer().setY(spawny);
 
-
     }
+
     public void tick(){
         entityManager.tick();
     }
@@ -63,8 +63,8 @@ public class World {
         if(t == null)
             return Tile.dirttile;
         return t;
-
     }
+
  private void loadWorld(String path){ //acces can be private
         String file = Utils.loadFileAsString(path);
         String [] tokens = file.split("\\s+");
@@ -72,8 +72,8 @@ public class World {
         height = Utils.parseInt(tokens[1]);
         spawnx = Utils.parseInt(tokens[2]);
         spawny = Utils.parseInt(tokens[3]);
-
         tiles = new int[width][height];
+
         for (int y = 0; y < height; y++ ){
             for (int x = 0; x < width; x++){
                 tiles[x][y] = Utils.parseInt(tokens[x+y*width + 4]);// casue 4 ara smth diffenert

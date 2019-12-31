@@ -11,17 +11,12 @@ public class Assets {
     public static void init(){
         SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/Zombiehead2.png"));
 
+        //these are x,y from template Zombiehead2.png"
         player = sheet.crop(0,0, width, height);
-        dirt = sheet.crop( width,0, width, height);
-        grass = sheet.crop(width*2,0, width, height);
-        rock = sheet.crop(0, height, width, height);
-        enemy = sheet.crop(width, height, width, height);
-
-
-
-
-
-
-
+        dirt   = sheet.crop( width,0, width, height);
+        grass  = sheet.crop(width*2,0, width, height);
+        rock   = sheet.crop(0, height, width, height);
+        enemy  = sheet.crop(width, height, width, height);
     }
+
 }
