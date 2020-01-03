@@ -1,5 +1,6 @@
 
 import com.game.MAIN.Handler;
+import com.game.display.Display;
 import com.game.enitity.creature.Player;
 import input.KeyManager;
 import org.junit.Assert;
@@ -19,7 +20,7 @@ import javax.swing.*;
 import static org.mockito.Mockito.*;
 
 
-import java.awt.event.KeyEvent;
+
 
 
 public class ZHTests {
@@ -56,6 +57,13 @@ public class ZHTests {
         keyManager.keyPressed(space);
         keyManager.tick();
         Assert.assertTrue(keyManager.isAttack());
+    }
+
+    @Test
+    public void testOfDisplay(){
+        Display display = new Display( "test", 100, 100);
+        Assert.assertNotNull(display.getCanvas());
+        Assert.assertNotNull(display.getFrame());
     }
 
 }
