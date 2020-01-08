@@ -6,12 +6,14 @@ import input.KeyManager;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import java.awt.event.KeyEvent;
+import org.mockito.runners.MockitoJUnitRunner;
 
 
 
@@ -21,7 +23,8 @@ import static org.mockito.Mockito.*;
 
 
 
-
+// @RunWith attaches a runner with the test class to initialize the test data
+@RunWith(MockitoJUnitRunner.class)
 
 public class ZHTests {
 
@@ -65,6 +68,8 @@ public class ZHTests {
         Assert.assertNotNull(display.getCanvas());
         Assert.assertNotNull(display.getFrame());
     }
+
+
 
 }
 

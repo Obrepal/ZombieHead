@@ -21,7 +21,7 @@ public class Player extends Creature {
     private long lastAttackTimer, attackCooldown,fireCooldown, lastFireTimer = 800, attackTimer = attackCooldown,fireTimer =fireCooldown ;
     private Rectangle attackRect = new Rectangle();
     private Rectangle fireRect = new Rectangle();
-   // private RailGun railGun = new RailGun();
+
 
 
 
@@ -91,11 +91,10 @@ public class Player extends Creature {
             if(fireTimer > 300){
                 firing = false;
             }
+
             if(fireTimer < fireCooldown) {
                 return;
             }
-
-
 
             if (handler.getKeyManeger().isFire()) {
 
@@ -170,11 +169,6 @@ public class Player extends Creature {
             }
 
         //graphics.fillRect((int)(x + DEFAULT_CREATURE_HEIGHT /4+ bounds.x-handler.getGameCamera().getxOffset()),(int) (y + DEFAULT_CREATURE_WIDTH/4+ bounds.y - handler.getGameCamera().getyOffset()), fireRect.width ,fireRect.height);
-
-
-
-
-
 
 
         graphics.setFont(new Font("TimesRoman",Font.PLAIN, 10));
