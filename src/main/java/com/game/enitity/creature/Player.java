@@ -30,10 +30,10 @@ public class Player extends Creature {
     public Player(Handler handler, float x, float y) {
         super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH, Creature.DEFAULT_CREATURE_HEIGHT);
 
-        bounds.x= 16; //coordinate of player
+        bounds.x = 16; //coordinate of player
         bounds.y = 32;
         bounds.width = 32;
-        bounds. height = 32;
+        bounds.height = 32;
     }
 
         @Override
@@ -124,8 +124,8 @@ public class Player extends Creature {
                     fireRect.x = collisonRect.x + 16;
                     fireRect.y = collisonRect.y + 16;
                 }
-
                 firing = true;
+
             } else return;
 
             for (int i = 0; i < 2; ++i){
@@ -207,6 +207,12 @@ public class Player extends Creature {
     static float getYP(){
         return t;
     }
+
+    public float getYMove() {
+        return  yMove;
+    }
+
+
    /* public static ArrayList getBullets()
     {
         return bullets;

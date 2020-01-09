@@ -15,6 +15,13 @@ import static org.junit.Assert.assertTrue;
 import java.awt.event.KeyEvent;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
 
 
 import javax.swing.*;
@@ -29,7 +36,7 @@ import static org.mockito.Mockito.*;
 public class ZHTests {
 
     @Test
-    public  void testOfKeyManager() {
+    public void testOfKeyManager() {
         KeyManager keyManager = new KeyManager();
         KeyEvent f = new KeyEvent(new JFrame(), KeyEvent.KEY_PRESSED, 1, 0, 70, KeyEvent.CHAR_UNDEFINED);
         keyManager.keyPressed(f);
@@ -63,13 +70,23 @@ public class ZHTests {
     }
 
     @Test
-    public void testOfDisplay(){
-        Display display = new Display( "test", 100, 100);
+    public void testOfDisplay() {
+        Display display = new Display("test", 100, 100);
         Assert.assertNotNull(display.getCanvas());
         Assert.assertNotNull(display.getFrame());
     }
 
+    @Mock
+    Handler handler;
 
+    @Test
+    public void tesOfPlayer() {
+        Player player = new Player(handler, 200,300);
+        System.out.println( player.getX());
+        System.out.println(player.getYMove());
+        assertTrue(player.getX() == 200);
+        assertTrue(player.getYMove()== 0);
+    }
 
 }
 

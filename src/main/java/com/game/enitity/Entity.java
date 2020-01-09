@@ -34,7 +34,7 @@ public abstract class Entity {
 
     public abstract void die();
 
-   public abstract void getInput();
+    public abstract void getInput();
 
     public void hurt(int amt){
         health -= amt;
