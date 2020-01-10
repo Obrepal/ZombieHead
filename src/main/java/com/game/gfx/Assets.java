@@ -2,6 +2,8 @@ package com.game.gfx;
 
 import java.awt.image.BufferedImage;
 
+import static com.game.gfx.ImageLoader.loadImage;
+
 public class Assets {
 
     private static final int width = 100, height = 100;
@@ -9,7 +11,7 @@ public class Assets {
 
 
     public static void init(){
-        SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/Zombiehead2.png"));
+        SpriteSheet sheet = new SpriteSheet(loadImage("/textures/Zombiehead2.png"));
 
         //these are x,y from template Zombiehead2.png"
         player = sheet.crop(0,0, width, height);
