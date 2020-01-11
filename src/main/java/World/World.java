@@ -90,14 +90,6 @@ public class World {
         return height;
     }
 
-    public int getSpawnx() {
-        return spawnx;
-    }
-
-    public int getSpawny() {
-        return spawny;
-    }
-
     public EntityManager getEntityManager() {
         return entityManager;
     }

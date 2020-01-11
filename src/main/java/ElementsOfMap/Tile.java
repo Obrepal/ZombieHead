@@ -18,7 +18,7 @@ public class Tile {
     private BufferedImage texture;
     private final int id;
 
-    public Tile(BufferedImage texture, int id) {
+    Tile(BufferedImage texture, int id) {
         this.texture = texture;
         this.id = id;
 
@@ -37,7 +37,4 @@ public class Tile {
         return false;
     }
 
-    public int getId() {
-        return id;
-    }
 }

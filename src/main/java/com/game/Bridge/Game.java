@@ -16,7 +16,7 @@ public class Game implements Runnable {
 
     private Display display;
     private int width, height;
-    public String title;
+    private String title;
 
 
     private boolean running = false;
@@ -38,7 +38,7 @@ public class Game implements Runnable {
     //HANDLER
     private Handler handler;
 
-    public Game(String title, int width, int height) {
+    Game(String title, int width, int height) {
         this.width = width;
         this.height = height;
         this.title = title;
@@ -122,7 +122,7 @@ public class Game implements Runnable {
         stop();
     }
 
-    public KeyManager getKeyManager() {
+    KeyManager getKeyManager() {
         return keyManager;
     }
 
@@ -134,7 +134,7 @@ public class Game implements Runnable {
         return width;
     }
 
-    public int getHeight() {
+    int getHeight() {
         return height;
     }
 
