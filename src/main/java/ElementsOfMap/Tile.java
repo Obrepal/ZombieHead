@@ -1,4 +1,4 @@
-package tiles;
+package ElementsOfMap;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -18,22 +18,22 @@ public class Tile {
     private BufferedImage texture;
     private final int id;
 
-    public Tile(BufferedImage texture,int id) {
+    public Tile(BufferedImage texture, int id) {
         this.texture = texture;
         this.id = id;
 
         tiles[id] = this;//it sets index on this stuff
     }
 
-    public void tick(){
+    public void tick() {
 
     }
 
-    public void render(Graphics graphics, int x, int y){
+    public void render(Graphics graphics, int x, int y) {
         graphics.drawImage(texture, x, y, TILEWIDTH, TILEHEIGHT, null);
     }
 
-    public boolean isSolid(){
+    public boolean isSolid() {
         return false;
     }
 

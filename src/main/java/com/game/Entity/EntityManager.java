@@ -1,7 +1,8 @@
-package com.game.enitity;
+package com.game.Entity;
 
-import com.game.MAIN.Handler;
-import com.game.enitity.creature.Player;
+import com.game.Bridge.Handler;
+import com.game.Entity.Creatures.Player;
+
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -11,29 +12,29 @@ public class EntityManager {
     private Player player;
     private ArrayList<Entity> entities;
 
-    public EntityManager(Handler handler, Player player){
+    public EntityManager(Handler handler, Player player) {
         this.handler = handler;
         this.player = player;
         entities = new ArrayList<Entity>();
         addEntity(player);
     }
 
-    public void tick(){
-        for(int i = 0;i < entities.size();i++){
+    public void tick() {
+        for (int i = 0; i < entities.size(); i++) {
             Entity e = entities.get(i);
             e.tick();
-            if(!e.isActive())
+            if (!e.isActive())
                 entities.remove(e);
         }
     }
 
-    public void render(Graphics g){
-        for(Entity e : entities){
+    public void render(Graphics g) {
+        for (Entity e : entities) {
             e.render(g);
         }
     }
 
-    public void addEntity(Entity e){
+    public void addEntity(Entity e) {
         entities.add(e);
     }
 

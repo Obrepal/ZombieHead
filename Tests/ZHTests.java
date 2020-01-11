@@ -1,33 +1,23 @@
 
-import com.game.MAIN.Handler;
-import com.game.display.Display;
-import com.game.enitity.creature.Player;
-import input.KeyManager;
+import com.game.Bridge.Handler;
+import com.game.Display.Display;
+import com.game.Entity.Creatures.Player;
+import KeyboardInput.KeyManager;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+
 import java.awt.event.KeyEvent;
-import org.mockito.runners.MockitoJUnitRunner;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-
 
 
 import javax.swing.*;
-
-import static org.mockito.Mockito.*;
-
 
 
 // @RunWith attaches a runner with the test class to initialize the test data
@@ -81,11 +71,11 @@ public class ZHTests {
 
     @Test
     public void tesOfPlayer() {
-        Player player = new Player(handler, 200,300);
-        System.out.println( player.getX());
+        Player player = new Player(handler, 200, 300);
+        System.out.println(player.getX());
         System.out.println(player.getYMove());
         assertTrue(player.getX() == 200);
-        assertTrue(player.getYMove()== 0);
+        assertTrue(player.getYMove() == 0);
     }
 
 }

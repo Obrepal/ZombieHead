@@ -1,28 +1,30 @@
-package com.game.MAIN;
+package com.game.Bridge;
 
 import World.World;
-import com.game.gfx.GameCamera;
-import input.KeyManager;
+import com.game.Graphics.GameCamera;
+import KeyboardInput.KeyManager;
 
 public class Handler {
     private Game game;
     private World world;
 
-    public Handler(Game game){ this.game = game; }
+    public Handler(Game game) {
+        this.game = game;
+    }
 
-    public GameCamera getGameCamera(){
+    public GameCamera getGameCamera() {
         return game.getGameCamera();
     }
 
-    public KeyManager getKeyManeger(){
+    public KeyManager getKeyManeger() {
         return game.getKeyManager();
     }
 
-    public int getWidth(){
+    public int getWidth() {
         return game.getWidth();
     }
 
-    public int getHeight(){
+    public int getHeight() {
         return game.getHeight();
     }
 

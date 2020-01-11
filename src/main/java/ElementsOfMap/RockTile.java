@@ -1,14 +1,15 @@
-package tiles;
+package ElementsOfMap;
 
-import com.game.gfx.Assets;
+import com.game.Graphics.Assets;
 
 public class RockTile extends Tile {
 
-    RockTile(int id){
+    RockTile(int id) {
         super(Assets.rock, id);
     }
+
     @Override
-    public boolean isSolid(){
+    public boolean isSolid() {
         return true;
     }
 }

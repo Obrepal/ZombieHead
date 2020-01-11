@@ -1,4 +1,4 @@
-package input;
+package KeyboardInput;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -8,10 +8,6 @@ public class KeyManager implements KeyListener {
     private boolean up, down, left, right;
     private boolean attack;
     private boolean fire;
-
-
-
-
 
 
     public KeyManager() {
@@ -40,7 +36,7 @@ public class KeyManager implements KeyListener {
         keys[e.getKeyCode()] = false;
     }
 
-    public boolean isFire(){
+    public boolean isFire() {
         return fire;
     }
 
@@ -63,15 +59,9 @@ public class KeyManager implements KeyListener {
     public boolean isAttack() {
         return attack;
     }
-    /*
-    public boolean[] getKeys(){
-        return keys;
-    }
-
-    public boolean getKeys1(int input){
-        return keys[input];
-    }
-*/
 
 }
+
+
+
 

@@ -1,4 +1,4 @@
-package com.game.MAIN;
+package com.game.Bridge;
 
 public class Main {
 

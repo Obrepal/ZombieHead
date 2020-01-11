@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-Main-Class: com.game.MAIN.Main
+Main-Class: com.game.Bridge.Main
 
 

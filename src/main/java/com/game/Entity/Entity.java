@@ -1,15 +1,14 @@
-package com.game.enitity;
+package com.game.Entity;
 
-import com.game.MAIN.Game;
-import com.game.MAIN.Handler;
+import com.game.Bridge.Handler;
 
 import java.awt.*;
 
 public abstract class Entity {
 
-    private static  final int DEFAULT_HEALTH = 1;
+    private static final int DEFAULT_HEALTH = 1;
     protected Handler handler;
-    protected float x,y; //position
+    protected float x, y; //position
     protected int width, height;
     private int health;
     private boolean active = true;
@@ -25,37 +24,37 @@ public abstract class Entity {
         this.height = height;
         health = DEFAULT_HEALTH;
 
-        bounds = new Rectangle(0,0,width,height);
+        bounds = new Rectangle(0, 0, width, height);
     }
 
     public abstract void tick();
 
-    public abstract  void render(Graphics graph);
+    public abstract void render(Graphics graph);
 
     public abstract void die();
 
     public abstract void getInput();
 
-    public void hurt(int amt){
+    public void hurt(int amt) {
         health -= amt;
-        if(health <= 0){
+        if (health <= 0) {
             active = false;
             die();
         }
     }
 
-    protected boolean checkEntityCollisions(float xOffset, float yOffset){
-        for(Entity e : handler.getWorld().getEntityManager().getEntities()) {
-            if(e.equals(this))
+    protected boolean checkEntityCollisions(float xOffset, float yOffset) {
+        for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
+            if (e.equals(this))
                 continue;
-            if (e.getCollisionBounds(0f, 0f).intersects( getCollisionBounds(xOffset, yOffset) )) //rectangel
+            if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))) //rectangel
                 return true;
-            }
-        return false;
         }
+        return false;
+    }
 
-    public Rectangle getCollisionBounds(float xOffset, float yOffset){
-        return new Rectangle((int) ( x + bounds.x + xOffset), (int)( y + bounds. y + yOffset),
+    public Rectangle getCollisionBounds(float xOffset, float yOffset) {
+        return new Rectangle((int) (x + bounds.x + xOffset), (int) (y + bounds.y + yOffset),
                 bounds.width, bounds.height);
     }
 
