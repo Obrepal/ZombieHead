@@ -23,5 +23,5 @@ Try:<br />
 Maven-> Plugins-> clean-> clean <br />
 Then Build->Build artifacts->build<br />
 
-Now it should work. I am still looking for solution. <br />
+Now it should work. I am still looking on solution. <br />
  
