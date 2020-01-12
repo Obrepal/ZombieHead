@@ -30,12 +30,10 @@ public class World {
 
         for (int k = 0; k < 5; k++) entityManager.addEntity(new Enemy(handler, 500, k * 50));
 
-
         loadWorld(path);
 
         entityManager.getPlayer().setX(spawnx);
         entityManager.getPlayer().setY(spawny);
-
     }
 
     public void tick() {
