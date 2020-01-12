@@ -28,6 +28,8 @@ public class World {
         entityManager.addEntity(new Enemy(handler, 250, 850));
         entityManager.addEntity(new Enemy(handler, 400, 850));
 
+        for (int k = 0; k < 5; k++) entityManager.addEntity(new Enemy(handler, 500, k * 50));
+
 
         loadWorld(path);
 
