@@ -209,5 +209,4 @@ public class Player extends Creature {
     public float getYMove() {
         return yMove;
     }
-
 }

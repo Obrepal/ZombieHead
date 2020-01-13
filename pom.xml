@@ -28,9 +28,19 @@
             <artifactId>junit</artifactId>
             <version>4.11</version>
             <scope>test</scope>
-        </dependency></dependencies>
+        </dependency>
+    </dependencies>
 
-
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources/Graphics/TilesAndGuys.png</directory>
+            </resource>
+            <resource>
+                <directory>src/main/resources/Graphics/world1.txt</directory>
+            </resource>
+        </resources>
+    </build>
 
 
 </project>

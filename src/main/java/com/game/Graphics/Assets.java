@@ -11,9 +11,9 @@ public class Assets {
 
 
     public static void init() {
-        SpriteSheet sheet = new SpriteSheet(loadImage("/textures/1.png"));
+        SpriteSheet sheet = new SpriteSheet(loadImage("/2.png"));
 
-        //these are x,y from template 1.png"
+        //these are x,y from template TilesAndGuys.png"
         player = sheet.crop(0, 0, width, height);
         dirt = sheet.crop(width, 0, width, height);
         grass = sheet.crop(width * 2, 0, width, height);

@@ -8,5 +8,4 @@ class DirtTile extends Tile {
         super(Assets.dirt, id);
     }
 
-
 }
